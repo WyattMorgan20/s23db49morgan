@@ -1,0 +1,24 @@
+{
+  "name": "s23wb49morgan",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "^4.3.4",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "Package": "^0.0.1",
+    "pug": "^3.0.2"
+  },
+  "main": "app.js",
+  "keywords": [
+    "assignment10"
+  ],
+  "author": "wyatt morgan",
+  "license": "ISC",
+  "description": ""
+}
