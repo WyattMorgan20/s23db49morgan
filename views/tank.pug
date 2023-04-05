@@ -2,4 +2,15 @@ extends layout
 
 block content
   h1= title 
-  
+
+  div(class = "container-fluid")
+    div(class = "row")
+      - let results = [
+        {name: "year"},
+        {name: "country"},
+        {name: "name"}
+      ]
+      - each item in results
+        div(class = "col-sm-2") #{item.name}:
+          div(class = "col-sm-2") #{item.name}:
+            div(class = "col-sm-2") #{item.name}:
