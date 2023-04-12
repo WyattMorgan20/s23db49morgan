@@ -20,11 +20,6 @@ db.once("open", function(){
   console.log("Connection to DB succeeded")});
 
 var Tank = require("./models/tank");
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var tankRouter = require('./routes/tank');
-var boardRouter = require('./routes/board');
-var selectorRouter = require('./routes/selector');
 
 // We can seed the collection if needed on
 // server start
@@ -52,8 +47,10 @@ async function recreateDB(){
       if(err) return console.error(err);
       console.log("Third object saved")
     });*/
+  //________________________________________________________________________
 
-  let instance1 = new Tank({year:'2023', country:'USA', name: 'Abrams'});
+
+  /* let instance1 = new Tank({year:'2023', country:'USA', name: 'Abrams'});
   instance1.save()
     .then(function(err, doc){
       console.log(instance1)
@@ -78,13 +75,36 @@ async function recreateDB(){
     })
     .catch(function (err) {
       console.log(err)
-    });
+    }); */
+
+  //_______________________________________________________________________
+    let instance1 = new Tank({year:2023, country:'USA', name:'Abrams'})
+    instance1.save().then(doc=>{
+      console.log("First object saved")}
+      ).catch(err=>{
+      console.error(err)})
+    
+    let instance2 = new Tank({year:2023, country:'Germany', name:'Panther'})
+    instance2.save().then(doc=>{
+      console.log("Second object saved")}
+      ).catch(err=>{
+      console.error(err)})
+    
+    let instance3 = new Tank({year:2023, country:'UK', name:'Challenger'})
+    instance3.save().then(doc=>{
+      console.log("Third object saved")}
+      ).catch(err=>{
+      console.error(err)})
 }
 
 let reseed = true;
 if (reseed) { recreateDB();}
 
-
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var tankRouter = require('./routes/tank');
+var boardRouter = require('./routes/board');
+var selectorRouter = require('./routes/selector');
 
 var app = express();
 
