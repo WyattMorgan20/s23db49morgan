@@ -5,6 +5,6 @@ block content
 
   div(class = "container-fluid")
     div(class = "row")
-      - let results = [{year: "year1", country: "country1", name: "name1"}, {year: "year2", country: "country2", name: "name2"}, {year: "year3", country: "country3", name: "name3"}]
-        each item in results
+      - let result = results
+        each item in result
           div(class = "col-sm-2") #{item.year} #{item.country} #{item.name}

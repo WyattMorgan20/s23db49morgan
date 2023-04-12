@@ -7,3 +7,10 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+var express = require('express');
+const tank_controlers= require('../controllers/tank');
+var router = express.Router();
+/* GET tanks */
+router.get('/', tank_controlers.tank_view_all_Page );
+module.exports = router;

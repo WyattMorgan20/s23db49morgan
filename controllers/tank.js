@@ -36,8 +36,8 @@ exports.tank_list = async function(req, res) {
 // Handle a show all view
 exports.tank_view_all_Page = async function(req, res) {
     try{
-    theTankss = await Tank.find();
-    res.render('tanks', { title: 'Tank Search Results', results: theTanks });
+    theTanks = await Tank.find();
+    res.render('tank', { title: 'Tank Search Results', results: theTanks });
     }
     catch(err){
     res.status(500);
