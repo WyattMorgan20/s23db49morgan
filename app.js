@@ -4,11 +4,87 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config();
+const connectionString =
+process.env.MONGO_CON
+mongoose = require('mongoose');
+mongoose.connect(connectionString,
+  {useNewUrlParser: true,
+  useUnifiedTopology: true});
+
+//Get the default connection
+var db = mongoose.connection;
+//Bind connection to error event
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once("open", function(){
+  console.log("Connection to DB succeeded")});
+
+var Tank = require("./models/tank");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var tankRouter = require('./routes/tank');
 var boardRouter = require('./routes/board');
 var selectorRouter = require('./routes/selector');
+
+// We can seed the collection if needed on
+// server start
+async function recreateDB(){
+  // Delete everything
+  await Tank.deleteMany();
+
+  /* let instance1 = new Tank({year:'2023', country:'USA', name: 'Abrams'});
+  instance1.save()
+    .then(function(err, doc){
+      if(err) return console.error(err);
+      console.log("First object saved")
+    });
+
+  let instance2 = new Tank({year:'2023', country:'Germany', name: 'Panther'});
+  instance2.save()
+    .then(function(err, doc){
+      if(err) return console.error(err);
+      console.log("Second object saved")
+    });
+
+  let instance3 = new Tank({year:'2023', country:'UK', name: 'Challenger'});
+  instance3.save()
+    .then(function(err, doc){
+      if(err) return console.error(err);
+      console.log("Third object saved")
+    });*/
+
+  let instance1 = new Tank({year:'2023', country:'USA', name: 'Abrams'});
+  instance1.save()
+    .then(function(err, doc){
+      console.log(instance1)
+    })
+    .catch(function (err) {
+      console.log(err)
+    });
+
+  let instance2 = new Tank({year:'2023', country:'Germany', name: 'Panther'});
+  instance2.save()
+    .then(function(err, doc){
+      console.log(instance2)
+    })
+    .catch(function (err) {
+      console.log(err)
+    });
+
+  let instance3 = new Tank({year:'2023', country:'UK', name: 'Challenger'});
+  instance3.save()
+    .then(function(err, doc){
+      console.log(instance3)
+    })
+    .catch(function (err) {
+      console.log(err)
+    });
+}
+
+let reseed = true;
+if (reseed) { recreateDB();}
+
+
 
 var app = express();
 
