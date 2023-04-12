@@ -4,5 +4,4 @@ const tankSchema = mongoose.Schema({
     country: String,
     name: String
 })
-module.exports = mongoose.model("Tank",
-tankSchema)
+module.exports = mongoose.model("Tank", tankSchema)
