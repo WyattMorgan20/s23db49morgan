@@ -19,3 +19,28 @@ res.send('NOT IMPLEMENTED: Tank delete DELETE ' + req.params.id);
 exports.tank_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: Tank update PUT' + req.params.id);
 };
+
+// List of all Tanks
+exports.tank_list = async function(req, res) {
+    try{
+    theTanks = await Tank.find();
+    res.send(theTanks);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+
+// VIEWS
+// Handle a show all view
+exports.tank_view_all_Page = async function(req, res) {
+    try{
+    theTankss = await Tank.find();
+    res.render('tanks', { title: 'Tank Search Results', results: theTanks });
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
