@@ -53,15 +53,15 @@ exports.tank_create_post = async function(req, res) {
     // Even though bodies can be in many different formats, we will be picky
     // and require that it be a json object
     // {"tank_type":"goat", "cost":12, "size":"large"}
-    document.tank_type = req.body.tank_type;
-    document.cost = req.body.cost;
-    document.size = req.body.size;
+    document.year = req.body.year;
+    document.country = req.body.country;
+    document.name = req.body.name;
     try{
-    let result = await document.save();
-    res.send(result);
+        let result = await document.save();
+        res.send(result);
     }
     catch(err){
-    res.status(500);
-    res.send(`{"error": ${err}}`);
+        res.status(500);
+        res.send(`{"error": ${err}}`);
     }
-    };
+};
