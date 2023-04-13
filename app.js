@@ -52,7 +52,7 @@ app.use('/selector', selectorRouter);
 app.use('/resource', resourceRouter);
 
 // GET request for one costume.
-router.get('/tank/:id', tank_controller.tank_detail);
+//router.get('/tank/:id', tank_controller.tank_detail);
 
 // We can seed the collection if needed on
 // server start
