@@ -17,3 +17,6 @@ module.exports = router;
 
 /* GET detail Tank page */
 router.get('/detail', tank_controlers.tank_view_one_Page);
+
+/* GET create costume page */
+router.get('/create', tank_controlers.tank_create_Page);
