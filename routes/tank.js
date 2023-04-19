@@ -14,3 +14,6 @@ var router = express.Router();
 /* GET tanks */
 router.get('/', tank_controlers.tank_view_all_Page );
 module.exports = router;
+
+/* GET detail Tank page */
+router.get('/detail', tank_controlers.tank_view_one_Page);

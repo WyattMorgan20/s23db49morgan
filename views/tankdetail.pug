@@ -1,11 +1,10 @@
-extends layout
+extends layout 
 
-extends layout
 block content
     h1= title
 
     - let Tankid = toShow._id
-    - let tank_year = toShow.tank_year
+    - let tankyear = toShow.year
     - let tankcountry = toShow.country
     - let tankname = toShow.name
     div
@@ -14,7 +13,7 @@ block content
             div #{Tankid}
         div.row
             div(class='tankAttr mr-3') Tank Year is:
-            div #{tank_year}
+            div #{tankyear}
         div.row
             div(class='tankAttr mr-3') Tank Country is:
             div #{tankcountry}
