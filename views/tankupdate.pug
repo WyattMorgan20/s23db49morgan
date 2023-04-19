@@ -1,0 +1,43 @@
+extends layout
+
+block content
+    h1= title
+
+    - let tankid = toShow._id
+    - let tankyear = toShow.tankyear
+    - let tankcountry = toShow.tankcountry
+    - let tankname = toShow.tankname
+
+    div.row(class='mb-2')
+        div.mr-1 ID is
+        div #{tankid}
+    - let actionid = "/resource/tank/" + tankid
+
+    form(id='TankForm', action= actionid, method="PUT")
+        div.form-group
+            label.tankAttr(for='tankyear') Tank year
+            input#tankyear(type='number', name='tankyear', value = tankyear)
+        div.form-group
+            label.tankAttr(for='country') Tank Country
+            input#tankcountry(type='text', name='tankcountry', value = tankcountry)
+        div.form-group
+            label.tankAttr(for='name') Tank Name
+            input#tankname(type='text', name='tankname', value = tankname )
+        input(type="submit")
+    script.
+        document.forms['TankForm'].addEventListener('submit', (event) => {
+            event.preventDefault();
+            // TODO do something here to show user that form is being submitted
+            fetch(event.target.action, {
+                method: 'PUT',
+                body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+            }).then((resp) => {
+                return resp.json(); // or resp.text() or whatever the server sends
+            }).then((body) => {
+                alert("Update succeded")
+                // TODO handle body
+            }).catch((error) => {
+                // TODO handle error
+                alert("Update failed " + error )
+            });
+        });

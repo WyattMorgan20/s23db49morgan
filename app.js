@@ -31,9 +31,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once("open", function(){
   console.log("Connection to DB succeeded")});
 
-
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
