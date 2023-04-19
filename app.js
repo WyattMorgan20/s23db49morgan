@@ -32,6 +32,22 @@ db.once("open", function(){
   console.log("Connection to DB succeeded")});
 
 
+/* GET detail Tank page */
+router.get('/detail', tank_controlers.tank_view_one_Page);
+
+// Handle a show one view with id specified by query
+exports.tank_view_one_Page = async function(req, res) {
+  console.log("single view for id " + req.query.id)
+  try{
+    result = await Tank.findById( req.query.id)
+    res.render('tankdetail',
+      { title: 'Tank Detail', toShow: result });
+  }
+  catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+  }
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

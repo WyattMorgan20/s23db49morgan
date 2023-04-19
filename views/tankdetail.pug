@@ -1,0 +1,23 @@
+extends layout
+
+extends layout
+block content
+    h1= title
+
+    - let Tankid = toShow._id
+    - let tank_year = toShow.tank_year
+    - let tankcountry = toShow.country
+    - let tankname = toShow.name
+    div
+        div.row
+            div(class='tankAttr mr-3') Tank ID is:
+            div #{Tankid}
+        div.row
+            div(class='tankAttr mr-3') Tank Year is:
+            div #{tank_year}
+        div.row
+            div(class='tankAttr mr-3') Tank Country is:
+            div #{tankcountry}
+        div.row
+            div(class='tankAttr mr-3') Tank Name is:
+            div #{tankname}
