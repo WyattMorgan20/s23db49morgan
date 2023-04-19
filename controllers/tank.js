@@ -85,10 +85,10 @@ ${JSON.stringify(req.body)}`)
     try {
         let toUpdate = await Tank.findById( req.params.id)
         // Do updates of properties
-        if(req.body.tank_type)
-            toUpdate.tank_type = req.body.tank_type;
-        if(req.body.cost) toUpdate.cost = req.body.cost;
-        if(req.body.size) toUpdate.size = req.body.size;
+        if(req.body.year)
+            toUpdate.year = req.body.year;
+        if(req.body.country) toUpdate.country = req.body.country;
+        if(req.body.name) toUpdate.name = req.body.name;
         let result = await toUpdate.save();
         console.log("Sucess " + result)
         res.send(result)

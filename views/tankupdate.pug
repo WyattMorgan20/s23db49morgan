@@ -4,9 +4,9 @@ block content
     h1= title
 
     - let tankid = toShow._id
-    - let tankyear = toShow.tankyear
-    - let tankcountry = toShow.tankcountry
-    - let tankname = toShow.tankname
+    - let year = toShow.year
+    - let country = toShow.country
+    - let name = toShow.name
 
     div.row(class='mb-2')
         div.mr-1 ID is
@@ -15,14 +15,14 @@ block content
 
     form(id='TankForm', action= actionid, method="PUT")
         div.form-group
-            label.tankAttr(for='tankyear') Tank year
-            input#tankyear(type='number', name='tankyear', value = tankyear)
+            label.tankAttr(for='year') Tank year
+            input#tankyear(type='number', name='year', value = year)
         div.form-group
             label.tankAttr(for='country') Tank Country
-            input#tankcountry(type='text', name='tankcountry', value = tankcountry)
+            input#tankcountry(type='text', name='country', value = country)
         div.form-group
             label.tankAttr(for='name') Tank Name
-            input#tankname(type='text', name='tankname', value = tankname )
+            input#tankname(type='text', name='name', value = name )
         input(type="submit")
     script.
         document.forms['TankForm'].addEventListener('submit', (event) => {
