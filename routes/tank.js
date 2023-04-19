@@ -23,3 +23,6 @@ router.get('/create', tank_controlers.tank_create_Page);
 
 /* GET create update page */
 router.get('/update', tank_controlers.tank_update_Page);
+
+/* GET delete tank page */
+router.get('/delete', tank_controlers.tank_delete_Page);
