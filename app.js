@@ -33,7 +33,7 @@ db.once("open", function(){
 
 
 /* GET detail Tank page */
-router.get('/detail', tank_controlers.tank_view_one_Page);
+router.get('/detail', tank_controllers.tank_view_one_Page);
 
 // Handle a show one view with id specified by query
 exports.tank_view_one_Page = async function(req, res) {
