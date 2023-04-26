@@ -55,9 +55,8 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
-  if(req.session.toReturn){
-    console.log("Send it back to " + req.session.toReturn)
-    res.redirect(req.session.toReturn);
+  if(req.session.returnTo){
+    res.redirect(req.session.returnTo);
   }
   res.redirect('/');
 });
