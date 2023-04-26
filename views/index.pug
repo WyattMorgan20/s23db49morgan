@@ -1,17 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p You Have Just Entered Wyatt Morgan's #{title}
-  button(type="button", class="btn btn-secondary", onclick="doReduce()") Press Me
-  div(id = "reduce") Reduce the Value
-
-  script. 
-    var count = 20
-    var change = -1
-
-    function doReduce(){
-      count += change
-      change -= 1
-      document.getElementById("reduce").innerHTML = "Count " + count + " with Change " + change
-    }
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/tank") Take me to Tanks
+    br
+    a(href="/logout") Logout
