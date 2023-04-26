@@ -5,11 +5,23 @@ block content
 
   div(class = "container-fluid")
     div(class = "row m-1")
+      - let place = `dispatch(\"/tank/create?")`
+      button.btn( class="btn-primary ml-1", onclick=place) Create 
+  
+
+  div(class = "container-fluid")
+    div(class = "row m-1")
       - let result = results
         each item in result
           - let destination = `dispatch(\"/tank/update?id=${item._id}\")`
+          - let location = `dispatch(\"/tank/detail?id=${item._id}\")`
+          - let yeah = `dispatch(\"/tank/delete?id=${item._id}\")`
           div(class = "col-sm-2") #{item.year} #{item.country} #{item.name}
             button.btn( class="btn-primary ml-1", onclick=destination) Update 
+            button.btn( class="btn-primary ml-1", onclick=location) Detail
+            button.btn( class="btn-primary ml-1", onclick=yeah) Delete
+
+    
 
   script.
     function dispatch(path){

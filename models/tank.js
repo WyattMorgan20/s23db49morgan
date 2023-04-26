@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const tankSchema = mongoose.Schema({
-    year: Number,
+    year: {type: Number, min: 1910, max: 2023},
     country: String,
     name: String
 })
